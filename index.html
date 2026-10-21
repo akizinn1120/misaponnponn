@@ -3,11 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>みさぽん☆シューティング</title>
+
+<!-- iPhone拡大防止（必須） -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- ★ 横向き禁止の警告レイヤー -->
+<div id="rotateWarning" class="rotate-warning" style="display:none;">
+  📱 縦向きでプレイしてください
+</div>
 
 <h2 id="scoreArea">SCORE: <span id="score">0</span></h2>
 
@@ -34,5 +41,32 @@
 </div>
 
 <script src="game.js"></script>
+
+<!-- ★ 縦向き専用ロックJS -->
+<script>
+function checkOrientation() {
+  const warning = document.getElementById("rotateWarning");
+  const game = document.getElementById("gameCanvas");
+  const controls = document.getElementById("controls");
+
+  // portrait（縦向き）
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    warning.style.display = "none";
+    game.style.display = "block";
+    if (controls) controls.style.display = "flex";
+  }
+  // landscape（横向き）
+  else {
+    warning.style.display = "flex";
+    game.style.display = "none";
+    if (controls) controls.style.display = "none";
+  }
+}
+
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+window.onload = checkOrientation;
+</script>
+
 </body>
 </html>
