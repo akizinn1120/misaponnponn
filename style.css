@@ -72,15 +72,15 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px; /* 少し広げる */
+  gap: 6px; 
 }
 
 /* ★ 十字キーのボタン */
 #dpad button {
-  width: 80px;     /* ← 60 → 80 */
-  height: 80px;    /* ← 60 → 80 */
-  font-size: 32px; /* ← 24 → 32（見やすく） */
-  border-radius: 12px;
+  width: 40px;    
+  height: 40px;  
+  font-size: 20px; 
+  border-radius: 10px;
   background: #444;
   color: #fff;
 }
@@ -89,22 +89,22 @@ button {
 .middle-row {
   display: flex;
   flex-direction: row;
-  gap: 8px; /* ← 少し広げる */
+  gap: 6px; 
   align-items: center;
 }
 
 /* 十字キー中央の空白 */
 .center-space {
-  width: 80px;   /* ← 60 → 80 */
-  height: 80px;  /* ← 60 → 80 */
+  width: 40px;  
+  height: 40px;  
 }
 
 /* ★ ショットボタン */
 #btnShoot {
   margin-right: 10px;
-  width: 120px;   /* ← 100 → 120 */
-  height: 120px;  /* ← 100 → 120 */
-  font-size: 32px;
+  width: 60px;   
+  height: 60px;  
+  font-size: 20px;
   border-radius: 50%;
   background: #ffcc00;
   color: #000;
