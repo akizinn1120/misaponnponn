@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>みさぽん☆シューティング</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2 id="scoreArea">SCORE: <span id="score">0</span></h2>
+
+<canvas id="gameCanvas" width="800" height="450"></canvas>
+<p>操作：矢印キーで移動／スペースでオートショット</p>
+<p>迫りくる敵をやっつけよう！</p>
+<button id="restartButton">RESTART</button>
+
+<!-- ★ スマホ操作ボタン（十字キー＋ショット） -->
+<div id="controls">
+  <div id="dpad">
+    <button id="btnUp">▲</button>
+
+    <div class="middle-row">
+      <button id="btnLeft">◀</button>
+      <div class="center-space"></div>
+      <button id="btnRight">▶</button>
+    </div>
+
+    <button id="btnDown">▼</button>
+  </div>
+
+  <button id="btnShoot">SHOT</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
