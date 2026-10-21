@@ -1,3 +1,12 @@
+/* ------------------------------------
+   スマホ縦向き禁止（横向き専用）
+------------------------------------ */
+window.addEventListener("orientationchange", () => {
+  if (window.orientation === 0 || window.orientation === 180) {
+    alert("横向きでプレイしてください！");
+  }
+});
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
