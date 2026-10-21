@@ -1145,33 +1145,29 @@ function checkOrientation() {
   const game = document.getElementById("gameCanvas");
   const controls = document.getElementById("controls");
 
-  // ★スマホ判定：画面幅で確実に判定（UAは使わない）
-  const isMobile = window.innerHeight > window.innerWidth; // 縦長＝スマホ
+  const isPortrait = window.innerHeight > window.innerWidth;  // ← 最強判定
 
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+  // ★スマホ判定（UAではなく画面サイズ）
+  const isMobile = window.innerWidth < 900;  // iPhone・Android共通
 
-  // ★スマホだけ縦向き専用
   if (isMobile) {
     if (isPortrait) {
       warning.style.display = "none";
       game.style.display = "block";
-      if (controls) controls.style.display = "flex";
+      controls.style.display = "flex";
     } else {
       warning.style.display = "flex";
       game.style.display = "none";
-      if (controls) controls.style.display = "none";
+      controls.style.display = "none";
     }
-  }
-
-  // ★PCは常にプレイ可能
-  else {
+  } else {
+    // PCは常にプレイ可能
     warning.style.display = "none";
     game.style.display = "block";
-    if (controls) controls.style.display = "none";
+    controls.style.display = "none";
   }
 }
 
-window.addEventListener("orientationchange", checkOrientation);
 window.addEventListener("resize", checkOrientation);
 window.onload = checkOrientation;
 
