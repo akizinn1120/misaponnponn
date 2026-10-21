@@ -15,7 +15,7 @@ body {
   width: 100%;
   height: auto;
   max-width: 100vw;
-  max-height: 60vh;
+  max-height: 55vh;
   display: block;
   margin: 0 auto;
   background: #87CEEB; /* 空色（任意） */
@@ -39,20 +39,14 @@ body {
 }
 
 /* ★ 十字キー本体 */
-/* ★ 十字キー本体 */
 #dpad {
   margin-left: 10px;
 }
-
 /* ★ 十字キーのボタン */
 #dpad button {
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  border-radius: 10px;
-  background: #444;
-  color: #fff;
-  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
 }
 
 /* 左右ボタンの行 */
@@ -71,5 +65,9 @@ body {
 
 /* ★ ショットボタン */
 #btnShoot {
-  margin-right: 10px;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 50%;
+  background: #ffcc00;
 }
