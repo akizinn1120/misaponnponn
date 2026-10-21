@@ -1,11 +1,14 @@
 /* ------------------------------------
    スマホ縦向き禁止（横向き専用）
 ------------------------------------ */
-window.addEventListener("orientationchange", () => {
-  if (window.orientation === 0 || window.orientation === 180) {
+function checkOrientation() {
+  if (window.matchMedia("(orientation: portrait)").matches) {
     alert("横向きでプレイしてください！");
   }
-});
+}
+
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("resize", checkOrientation); // ← 追加
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
