@@ -1113,7 +1113,7 @@ if (bossIndex >= 0 && bossIndex < endingBossImages.length) {
   });
 
   // ★スクロール速度（ゆっくり）
-  endingY -= 0.5;
+  endingY -= 0.7;
 
   // ★最後まで行ったらセンキュー画面
   if (endingY < -endingLines.length * 40) {
