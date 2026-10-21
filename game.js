@@ -170,6 +170,10 @@ canvas.addEventListener("touchstart", () => {
   }
 });
 
+//スマホズーム禁止
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());
 
 // スマホ操作イベント
 document.getElementById("btnUp").addEventListener("touchstart", () => touchUp = true);
