@@ -42,31 +42,5 @@
 
 <script src="game.js"></script>
 
-<!-- ★ 縦向き専用ロックJS -->
-<script>
-function checkOrientation() {
-  const warning = document.getElementById("rotateWarning");
-  const game = document.getElementById("gameCanvas");
-  const controls = document.getElementById("controls");
-
-  // portrait（縦向き）
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    warning.style.display = "none";
-    game.style.display = "block";
-    if (controls) controls.style.display = "flex";
-  }
-  // landscape（横向き）
-  else {
-    warning.style.display = "flex";
-    game.style.display = "none";
-    if (controls) controls.style.display = "none";
-  }
-}
-
-window.addEventListener("orientationchange", checkOrientation);
-window.addEventListener("resize", checkOrientation);
-window.onload = checkOrientation;
-</script>
-
 </body>
 </html>
