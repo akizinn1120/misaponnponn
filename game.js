@@ -1136,17 +1136,17 @@ if (bossIndex >= 0 && bossIndex < endingBossImages.length) {
     ctx.fillText("Thank you for playing!", canvas.width / 2, canvas.height / 2 + 80);
   }
 }
-/* ------------------------------------
-   ★ スマホ縦向き専用 ＆ PC常にプレイ可能
------------------------------------- */
 function checkOrientation() {
   const warning = document.getElementById("rotateWarning");
   const game = document.getElementById("gameCanvas");
   const controls = document.getElementById("controls");
 
-  const isMobile = /iPhone|Android.+Mobile/.test(navigator.userAgent);
+  // ★スマホ判定：画面幅で確実に判定（UAは使わない）
+  const isMobile = window.innerHeight > window.innerWidth; // 縦長＝スマホ
+
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
+  // ★スマホだけ縦向き専用
   if (isMobile) {
     if (isPortrait) {
       warning.style.display = "none";
@@ -1157,7 +1157,10 @@ function checkOrientation() {
       game.style.display = "none";
       if (controls) controls.style.display = "none";
     }
-  } else {
+  }
+
+  // ★PCは常にプレイ可能
+  else {
     warning.style.display = "none";
     game.style.display = "block";
     if (controls) controls.style.display = "none";
@@ -1167,6 +1170,7 @@ function checkOrientation() {
 window.addEventListener("orientationchange", checkOrientation);
 window.addEventListener("resize", checkOrientation);
 window.onload = checkOrientation;
+
 // ゲームクリア
 function drawGameClear() {
   ctx.fillStyle = 'rgba(0,0,0,0.6)';
