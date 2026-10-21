@@ -1,15 +1,3 @@
-/* ------------------------------------
-   スマホ縦向き禁止（横向き専用）
------------------------------------- */
-function checkOrientation() {
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    alert("横向きでプレイしてください！");
-  }
-}
-
-window.addEventListener("orientationchange", checkOrientation);
-window.addEventListener("resize", checkOrientation); // ← 追加
-
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -1293,9 +1281,41 @@ function gameLoop() {
 
   requestAnimationFrame(gameLoop);
 }
+/* ------------------------------------
+   ★ スマホ縦向き専用 ＆ PC常にプレイ可能
+------------------------------------ */
+function checkOrientation() {
+  const warning = document.getElementById("rotateWarning");
+  const game = document.getElementById("gameCanvas");
+  const controls = document.getElementById("controls");
+
+  const isMobile = /iPhone|Android.+Mobile/.test(navigator.userAgent);
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+  if (isMobile) {
+    if (isPortrait) {
+      warning.style.display = "none";
+      game.style.display = "block";
+      if (controls) controls.style.display = "flex";
+    } else {
+      warning.style.display = "flex";
+      game.style.display = "none";
+      if (controls) controls.style.display = "none";
+    }
+  } else {
+    warning.style.display = "none";
+    game.style.display = "block";
+    if (controls) controls.style.display = "none";
+  }
+}
+
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+window.onload = checkOrientation;
 
 // すべてのウィンドウリソース（画像やHTML）が読み込み完了したらスタート
 window.addEventListener('load', () => {
+   
   // 初期位置を確定（canvasのサイズが確定した後にセット）
   player.y = canvas.height / 2; 
   gameLoop();
