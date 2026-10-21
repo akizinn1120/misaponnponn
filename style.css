@@ -16,8 +16,8 @@ html, body {
 }
 /* PC用：Canvasを固定サイズで中央に配置 */
 #gameCanvas {
-  width: 480px;        /* ← 固定幅 */
-  height: 720px;       /* ← 固定高さ */
+  width: 960px;        /* ← 固定幅 */
+  height: 540px;       /* ← 固定高さ */
   display: block;
   margin: 0 auto;      /* ← 中央配置 */
   image-rendering: pixelated; /* ← ドット絵が綺麗に見える */
