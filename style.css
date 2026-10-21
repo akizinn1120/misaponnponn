@@ -5,6 +5,15 @@ body {
   margin: 0;
   overflow: hidden;
 }
+html, body {
+  touch-action: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+#scoreArea {
+  margin: 10px;
+}
 
 #scoreArea {
   margin: 10px;
@@ -36,10 +45,8 @@ body {
   text-align: center;
   z-index: 99999;
 }
-
 button {
   touch-action: manipulation;
-  -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
 }
